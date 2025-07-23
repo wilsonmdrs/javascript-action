@@ -6,7 +6,7 @@ const useCore = require('./src/core')
 
 // use an async function for the main tasks
 async function main() {
-    const action = core.getInput('input_1')
+    const action = core.getInput('action')
 
     switch (action) {
         case "SAY_HELLO":
