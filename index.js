@@ -1,7 +1,7 @@
 // src/index.js
 const core = require('@actions/core');
-const sayHello = require('./hello');
-const useCore = require('./core');
+const sayHello = require('.src/hello');
+const useCore = require('.src/core');
 
 async function main() {
   try {

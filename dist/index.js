@@ -8449,6 +8449,8 @@ const github = __nccwpck_require__(7016);
 // use an async function for the main tasks
 async function main() {
     console.log('Hello, Universe!')
+    const action = core.getInput('action');
+    core.info(`🔧 Received action: ${action}`);
 }
 
 // call the function
