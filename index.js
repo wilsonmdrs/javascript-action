@@ -15,7 +15,6 @@ async function main() {
         case "USE_CORE":
             useCore()
             break;
-    
         default:
             core.error("Error: No action was Provided!")
             break;

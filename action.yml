@@ -4,6 +4,9 @@ inputs:
   GITHUB_TOKEN:
     description: 'This is the GitHub token that lets the action authenticate'
     required: true
+  action:
+    description: "Which action to run (e.g., SAY_HELLO, USE_CORE)"
+    required: true
   input_1:
     description: 'This is the first input; it is required and does not have a default'
     required: true
@@ -15,7 +18,7 @@ outputs:
   output_1:
     description: 'This is the first output'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
 branding:
   icon: 'zap'
