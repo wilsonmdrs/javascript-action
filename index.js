@@ -1,7 +1,7 @@
-// src/index.js
 const core = require('@actions/core');
 const sayHello = require('./src/hello');
-const useCore = require('./src/core');
+const runCore = require('./src/core');
+const runContext = require('./src/context');
 
 async function main() {
   try {
@@ -12,8 +12,11 @@ async function main() {
       case 'SAY_HELLO':
         sayHello();
         break;
-      case 'USE_CORE':
-        useCore();
+      case 'RUN_CORE':
+        runCore();
+        break;
+      case 'RUN_CONTEXT':
+        runContext();
         break;
       default:
         core.setFailed(`❌ Unknown action: ${action}`);

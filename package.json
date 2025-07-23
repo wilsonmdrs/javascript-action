@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "node dist/index.js",
-    "build": "ncc build index.js"
+    "build": "ncc build index.js",
+    "prebuild": "npm install",             
+    "prepare": "npm run build",            
+    "rebuild": "npm ci && npm run build"
   },
   "repository": {
     "type": "git",
