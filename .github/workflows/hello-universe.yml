@@ -1,4 +1,4 @@
-name: Hello Universe
+name: Hello Universe 1
 on:
   push:
     branches: [ main ]
