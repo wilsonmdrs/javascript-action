@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node dist/index.js",
-    "build": "ncc build index.js"
+    "build": "chmod +x build-action.sh"
   },
   "repository": {
     "type": "git",
