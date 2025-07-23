@@ -1,25 +1,26 @@
-// require the libraries for actions
+// src/index.js
 const core = require('@actions/core');
-const github = require('@actions/github');
-const sayHello = require('./src/hello')
-const useCore = require('./src/core')
+const sayHello = require('./hello');
+const useCore = require('./core');
 
-// use an async function for the main tasks
 async function main() {
-    const action = core.getInput('action')
-    console.log(action)
+  try {
+    const action = core.getInput('action');
+    core.info(`🔧 Received action: ${action}`);
 
     switch (action) {
-        case "SAY_HELLO":
-            sayHello()
-            break;
-        case "USE_CORE":
-            useCore()
-            break;
-        default:
-            core.error("Error: No action was Provided!")
-            break;
+      case 'SAY_HELLO':
+        sayHello();
+        break;
+      case 'USE_CORE':
+        useCore();
+        break;
+      default:
+        core.setFailed(`❌ Unknown action: ${action}`);
     }
+  } catch (error) {
+    core.setFailed(error.message);
+  }
 }
-// call the function
+
 main();
