@@ -1,4 +1,4 @@
-name: Hello Universe 1
+name: Hello Universe
 on:
   push:
     branches: [ main ]
@@ -9,4 +9,4 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: YOUR_GITHUB_USER_NAME/YOUR_GITHUB_REPO_NAME@main
+      - uses: wilsonmdrs/javascript-action@main
