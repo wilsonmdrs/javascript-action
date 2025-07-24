@@ -1,23 +1,16 @@
+// Libraries
 const core = require('@actions/core');
-const sayHello = require('./src/hello');
-const runCore = require('./src/core');
-const runContext = require('./src/context');
+
+// Modules
+const runTest = require('./src/actions/test')
 
 async function main() {
   try {
     const action = core.getInput('action');
-    // const action = "RUN_CONTEXT"
-    core.info(`🔧 Received action: ${action}`);
 
     switch (action) {
-      case 'SAY_HELLO':
-        sayHello();
-        break;
-      case 'RUN_CORE':
-        runCore();
-        break;
-      case 'RUN_CONTEXT':
-        runContext();
+      case 'test':
+        runTest();
         break;
       default:
         core.setFailed(`❌ Unknown action: ${action}`);

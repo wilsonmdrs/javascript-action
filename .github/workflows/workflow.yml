@@ -13,22 +13,9 @@ jobs:
 
     steps:
       - uses: wilsonmdrs/javascript-action@main
-        name: Say Hello
+        name: Run Pipeline test
         with:
-          action: "SAY_HELLO"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: wilsonmdrs/javascript-action@main
-        name: Run Core
-        with:
-          action: "RUN_CORE"
-          input_1: "Testing 1 2 3"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: wilsonmdrs/javascript-action@main
-        name: Run Context
-        with:
-          action: "RUN_CONTEXT"
+          action: "test"
+          framework: "react"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
