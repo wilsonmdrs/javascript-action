@@ -25684,7 +25684,7 @@ const runCommand = __nccwpck_require__(1053);
 async function runTestPipelineReact() {
 
   const pm = core.getInput("package_manager")
-   const commands = events?.split(',') ?? ['install', 'test', 'coverage', 'lint', 'prettier'];
+   const commands = pm?.split(',') ?? ['install', 'test', 'coverage', 'lint', 'prettier'];
 
    try{
     runCommand(`${pm} install`);
