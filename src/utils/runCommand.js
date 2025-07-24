@@ -4,8 +4,10 @@ const { execSync } = require('child_process');
 
 function runCommand(command) {
   try {
+    const cwd = process.env.GITHUB_WORKSPACE;
+
     core.startGroup(`Running: ${command}`);
-    const output = execSync(command, { stdio: 'inherit' });
+    const output = execSync(command, { stdio: 'inherit', cwd });
     core.endGroup();
     return output;
   } catch (error) {
