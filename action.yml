@@ -17,7 +17,7 @@ inputs:
   commands:
     description: 'List of commands'
     required: false
-    default: "install,test,lint,prettier"
+    default: "test,coverage,lint,prettier"
 outputs:
   OUTCOME:
     description: 'An example of outcome'

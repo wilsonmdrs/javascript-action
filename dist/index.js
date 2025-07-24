@@ -25685,7 +25685,7 @@ async function runTestPipelineReact() {
 
   const pm = core.getInput("package_manager")
   const cmds = core.getInput("commands")
-   const commands = cmds?.split(',') ?? ['install', 'test', 'coverage', 'lint', 'prettier'];
+   const commands = cmds?.split(',') ?? ['test', 'coverage', 'lint', 'prettier'];
 
    try{
     runCommand(`${pm} install`);
