@@ -1,19 +1,22 @@
 // Libraries
-import core from '@actions/core';
+const core = require('@actions/core');
 
 // Utils
-import runCommand from '../utils/runCommand';
+const runCommand = require('../utils/runCommand');
 
 async function runTestPipelineReactNative() {
-   try {
-    runCommand('yarn');
-    runCommand('yarn test');
-    runCommand('yarn coverage');
-    runCommand('yarn lint');
-    runCommand('yarn prettier');
+  
+  const pm = core.getInput("package_manager")
+
+  try {
+    runCommand(`${pm} install`);
+    runCommand(`${pm} run test`);
+    runCommand(`${pm} run coverage`);
+    runCommand(`${pm} run lint`);
+    runCommand(`${pm} run prettier`);
   } catch (error) {
     core.setFailed(`❌ Erroe: ${error}`);
   }
 }
 
-export default runTestPipelineReactNative;
+module.exports = runTestPipelineReactNative;

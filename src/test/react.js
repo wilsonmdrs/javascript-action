@@ -1,8 +1,8 @@
 // Libraries
-import core from '@actions/core';
+const core = require('@actions/core');
 
 // Utils
-import runCommand from '../utils/runCommand';
+const runCommand = require('../utils/runCommand');
 
 async function runTestPipelineReact() {
 
@@ -19,4 +19,4 @@ async function runTestPipelineReact() {
   }
 }
 
-export default runTestPipelineReact;
+module.exports = runTestPipelineReact

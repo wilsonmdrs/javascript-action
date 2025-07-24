@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const runTestPipelineReact = require('../test/react');
-const runTestPipelineReactNative = require('../test/reactNative');
+const runTestPipelineReactNative = require('../test/react');
 
 async function runTest() {
     const framework = core.getInput('framework')

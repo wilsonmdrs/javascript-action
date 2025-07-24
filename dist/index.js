@@ -1560,7 +1560,7 @@ exports.debug = debug; // for test
 
 const core = __nccwpck_require__(484);
 const runTestPipelineReact = __nccwpck_require__(733);
-const runTestPipelineReactNative = __nccwpck_require__(518);
+const runTestPipelineReactNative = __nccwpck_require__(733);
 
 async function runTest() {
     const framework = core.getInput('framework')
@@ -1585,75 +1585,30 @@ module.exports = runTest;
 /***/ }),
 
 /***/ 733:
-/***/ ((__unused_webpack_module, __webpack_exports__, __nccwpck_require__) => {
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
-__nccwpck_require__.r(__webpack_exports__);
-/* harmony export */ __nccwpck_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(484);
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nccwpck_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils_runCommand__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(53);
-/* harmony import */ var _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nccwpck_require__.n(_utils_runCommand__WEBPACK_IMPORTED_MODULE_1__);
 // Libraries
-
+const core = __nccwpck_require__(484);
 
 // Utils
-
+const runCommand = __nccwpck_require__(53);
 
 async function runTestPipelineReact() {
 
-  const pm = _actions_core__WEBPACK_IMPORTED_MODULE_0___default().getInput("package_manager")
+  const pm = core.getInput("package_manager")
 
   try {
-    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()(`${pm} install`);
-    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()(`${pm} run test`);
-    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()(`${pm} run coverage`);
-    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()(`${pm} run lint`);
-    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()(`${pm} run prettier`);
+    runCommand(`${pm} install`);
+    runCommand(`${pm} run test`);
+    runCommand(`${pm} run coverage`);
+    runCommand(`${pm} run lint`);
+    runCommand(`${pm} run prettier`);
   } catch (error) {
-    _actions_core__WEBPACK_IMPORTED_MODULE_0___default().setFailed(`❌ Erroe: ${error}`);
+    core.setFailed(`❌ Erroe: ${error}`);
   }
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (runTestPipelineReact);
-
-
-/***/ }),
-
-/***/ 518:
-/***/ ((__unused_webpack_module, __webpack_exports__, __nccwpck_require__) => {
-
-"use strict";
-__nccwpck_require__.r(__webpack_exports__);
-/* harmony export */ __nccwpck_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(484);
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nccwpck_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils_runCommand__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(53);
-/* harmony import */ var _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nccwpck_require__.n(_utils_runCommand__WEBPACK_IMPORTED_MODULE_1__);
-// Libraries
-
-
-// Utils
-
-
-async function runTestPipelineReactNative() {
-   try {
-    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()('yarn');
-    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()('yarn test');
-    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()('yarn coverage');
-    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()('yarn lint');
-    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()('yarn prettier');
-  } catch (error) {
-    _actions_core__WEBPACK_IMPORTED_MODULE_0___default().setFailed(`❌ Erroe: ${error}`);
-  }
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (runTestPipelineReactNative);
-
+module.exports = runTestPipelineReact
 
 /***/ }),
 
@@ -1803,46 +1758,6 @@ module.exports = require("util");
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nccwpck_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__nccwpck_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__nccwpck_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__nccwpck_require__.o(definition, key) && !__nccwpck_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__nccwpck_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__nccwpck_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/compat */
 /******/ 	
 /******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";
@@ -1857,7 +1772,7 @@ const runTest = __nccwpck_require__(677)
 
 async function main() {
   try {
-    const action = core.getInput('action');
+    const action = core.getInput('action') || "test";
 
     switch (action) {
       case 'test':
