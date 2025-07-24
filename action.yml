@@ -15,9 +15,9 @@ inputs:
     required: false
     default: "yarn"
   commands:
-    description: 'List of commands'
+    description: 'List of commands: test, coverage, lint, prettier, build'
     required: false
-    default: "test,coverage,lint,prettier"
+    default: "test,coverage,lint,prettier,build"
 outputs:
   OUTCOME:
     description: 'An example of outcome'
