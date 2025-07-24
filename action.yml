@@ -10,6 +10,10 @@ inputs:
   framework:
     description: 'Availables:  react, react_native'
     required: true
+  package_manager:
+    description: 'Availables:  yarn, npm, pnpm'
+    required: false
+    default: "yarn"
 outputs:
   OUTCOME:
     description: 'An example of outcome'

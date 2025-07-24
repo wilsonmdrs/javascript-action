@@ -1604,12 +1604,14 @@ __nccwpck_require__.r(__webpack_exports__);
 
 async function runTestPipelineReact() {
 
+  const pm = _actions_core__WEBPACK_IMPORTED_MODULE_0___default().getInput("package_manager")
+
   try {
-    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()('yarn');
-    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()('yarn test');
-    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()('yarn coverage');
-    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()('yarn lint');
-    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()('yarn prettier');
+    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()(`${pm} install`);
+    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()(`${pm} run test`);
+    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()(`${pm} run coverage`);
+    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()(`${pm} run lint`);
+    _utils_runCommand__WEBPACK_IMPORTED_MODULE_1___default()(`${pm} run prettier`);
   } catch (error) {
     _actions_core__WEBPACK_IMPORTED_MODULE_0___default().setFailed(`❌ Erroe: ${error}`);
   }

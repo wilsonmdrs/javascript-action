@@ -6,12 +6,14 @@ import runCommand from '../utils/runCommand';
 
 async function runTestPipelineReact() {
 
+  const pm = core.getInput("package_manager")
+
   try {
-    runCommand('yarn');
-    runCommand('yarn test');
-    runCommand('yarn coverage');
-    runCommand('yarn lint');
-    runCommand('yarn prettier');
+    runCommand(`${pm} install`);
+    runCommand(`${pm} run test`);
+    runCommand(`${pm} run coverage`);
+    runCommand(`${pm} run lint`);
+    runCommand(`${pm} run prettier`);
   } catch (error) {
     core.setFailed(`❌ Erroe: ${error}`);
   }
