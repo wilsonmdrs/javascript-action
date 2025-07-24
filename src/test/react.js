@@ -7,13 +7,13 @@ const runCommand = require('../utils/runCommand');
 async function runTestPipelineReact() {
 
   const pm = core.getInput("package_manager")
+   const commands = events?.split(',') ?? ['install', 'test', 'coverage', 'lint', 'prettier'];
 
-  try {
+   try{
     runCommand(`${pm} install`);
-    runCommand(`${pm} run test`);
-    runCommand(`${pm} run coverage`);
-    runCommand(`${pm} run lint`);
-    runCommand(`${pm} run prettier`);
+    
+    commands.forEach((command) =>  runCommand(`${pm} run ${command}`));
+
   } catch (error) {
     core.setFailed(`❌ Erroe: ${error}`);
   }

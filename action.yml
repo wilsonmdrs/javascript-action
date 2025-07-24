@@ -14,6 +14,10 @@ inputs:
     description: 'Availables:  yarn, npm, pnpm'
     required: false
     default: "yarn"
+  commands:
+    description: 'List of commands'
+    required: false
+    default: "install,test,lint,prettier"
 outputs:
   OUTCOME:
     description: 'An example of outcome'
