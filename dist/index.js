@@ -8282,7 +8282,12 @@ const github = __nccwpck_require__(3228);
 async function runContext() {
     
     // get the GITHUB_TOKEN from input and use it to create an octokit client
-    const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN');
+    // const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN');
+    const GITHUB_TOKEN = process.env.GITHUB_TOKEN; // ✅ read from env
+    if (!GITHUB_TOKEN) {
+        core.setFailed("GITHUB_TOKEN is missing. Make sure it's passed via env.");
+        return;
+    }
     const octokit = github.getOctokit(GITHUB_TOKEN);
 
     // get the context from the github package
@@ -8535,7 +8540,8 @@ const runContext = __nccwpck_require__(4270);
 
 async function main() {
   try {
-    const action = core.getInput('action');
+    // const action = core.getInput('action');
+    const action = "RUN_CONTEXT"
     core.info(`🔧 Received action: ${action}`);
 
     switch (action) {

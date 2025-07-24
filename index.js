@@ -6,6 +6,7 @@ const runContext = require('./src/context');
 async function main() {
   try {
     const action = core.getInput('action');
+    // const action = "RUN_CONTEXT"
     core.info(`🔧 Received action: ${action}`);
 
     switch (action) {
